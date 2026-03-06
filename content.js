@@ -107,8 +107,8 @@
   const btnBgColor = createButton(ICONS.palette, 'Background Color');
 
   var PRESETS = [
-    '#6366f1', '#60a5fa', '#2dd4bf', '#f472b6', '#facc15',
-    '#f87171', '#818cf8', '#e2e8f0', '#ffffff', '#000000',
+    '#ffffff', '#f1f3f4', '#e8eaed', '#dadce0', '#9aa0a6',
+    '#5f6368', '#3c4043', '#202124', '#e8f0fe', '#1a73e8',
   ];
   const colorPicker = document.createElement('div');
   colorPicker.className = 'lv-color-picker';
@@ -155,13 +155,13 @@
   hexRow.className = 'lv-hex-row';
   var hexInput = document.createElement('input');
   hexInput.type = 'text';
-  hexInput.value = '#1a1a2e';
+  hexInput.value = '#ffffff';
   hexInput.spellcheck = false;
   hexRow.appendChild(hexInput);
   colorPicker.appendChild(hexRow);
 
   // Color picker state
-  var cpHue = 230, cpSat = 0.4, cpBri = 0.18;
+  var cpHue = 0, cpSat = 0, cpBri = 1;
 
   function hsvToRgb(h, s, v) {
     var c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;

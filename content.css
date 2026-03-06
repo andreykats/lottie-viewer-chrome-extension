@@ -6,52 +6,85 @@
 }
 
 body.lottie-viewer {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: #1a1a2e;
-  color: #e0e0e0;
+  /* Light theme (default) */
+  --lv-bg: #ffffff;
+  --lv-toolbar-bg: #f8f9fa;
+  --lv-border: #dadce0;
+  --lv-text-primary: #202124;
+  --lv-text-secondary: #5f6368;
+  --lv-icon: #5f6368;
+  --lv-accent: #1a73e8;
+  --lv-hover: rgba(0, 0, 0, 0.06);
+  --lv-active-bg: rgba(26, 115, 232, 0.12);
+  --lv-track: #dadce0;
+  --lv-panel-bg: #ffffff;
+  --lv-panel-shadow: rgba(0, 0, 0, 0.15);
+  --lv-input-bg: #f1f3f4;
+  --lv-row-border: #f1f3f4;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--lv-bg);
+  color: var(--lv-text-primary);
   overflow: hidden;
   height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+@media (prefers-color-scheme: dark) {
+  body.lottie-viewer {
+    --lv-bg: #202124;
+    --lv-toolbar-bg: #292a2d;
+    --lv-border: #3c4043;
+    --lv-text-primary: #e8eaed;
+    --lv-text-secondary: #9aa0a6;
+    --lv-icon: #9aa0a6;
+    --lv-accent: #8ab4f8;
+    --lv-hover: rgba(255, 255, 255, 0.08);
+    --lv-active-bg: rgba(138, 180, 248, 0.2);
+    --lv-track: #3c4043;
+    --lv-panel-bg: #292a2d;
+    --lv-panel-shadow: rgba(0, 0, 0, 0.4);
+    --lv-input-bg: #202124;
+    --lv-row-border: #3c4043;
+  }
+}
+
 /* Toolbar */
 #lv-toolbar {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background: #16213e;
-  border-bottom: 1px solid #0f3460;
-  height: 44px;
+  gap: 4px;
+  padding: 0 8px;
+  background: var(--lv-toolbar-bg);
+  border-bottom: 1px solid var(--lv-border);
+  height: 40px;
   flex-shrink: 0;
   z-index: 10;
 }
 
 #lv-toolbar button {
   background: none;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  color: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  color: var(--lv-icon);
   cursor: pointer;
   width: 32px;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.1s;
   flex-shrink: 0;
 }
 
 #lv-toolbar button:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.15);
+  background: var(--lv-hover);
 }
 
 #lv-toolbar button.active {
-  background: rgba(83, 122, 237, 0.2);
-  border-color: #537aed;
-  color: #537aed;
+  background: var(--lv-active-bg);
+  color: var(--lv-accent);
 }
 
 #lv-toolbar button svg {
@@ -66,22 +99,22 @@ body.lottie-viewer {
   -webkit-appearance: none;
   appearance: none;
   height: 4px;
-  background: #2a2a4a;
+  background: var(--lv-track);
   border-radius: 2px;
   outline: none;
   cursor: pointer;
-  margin: 0 4px;
+  margin: 0 8px;
 }
 
 #lv-progress::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: #537aed;
+  background: var(--lv-accent);
   cursor: pointer;
   border: none;
-  margin-top: -5px;
+  margin-top: -4px;
 }
 
 #lv-progress::-webkit-slider-runnable-track {
@@ -91,9 +124,9 @@ body.lottie-viewer {
 
 /* Time labels */
 .lv-time {
-  font-size: 11px;
-  color: #888;
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px;
+  color: var(--lv-text-secondary);
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
   min-width: 32px;
   flex-shrink: 0;
@@ -103,24 +136,25 @@ body.lottie-viewer {
 .lv-separator {
   width: 1px;
   height: 20px;
-  background: #0f3460;
+  background: var(--lv-border);
   flex-shrink: 0;
+  margin: 0 4px;
 }
 
 /* Color picker panel */
 .lv-color-picker {
   position: absolute;
-  top: 56px;
-  right: 16px;
+  top: 48px;
+  right: 12px;
   display: none;
   flex-direction: column;
   gap: 12px;
-  background: #16213e;
-  border: 1px solid #0f3460;
-  border-radius: 10px;
+  background: var(--lv-panel-bg);
+  border: 1px solid var(--lv-border);
+  border-radius: 8px;
   padding: 16px;
   width: 240px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px 2px var(--lv-panel-shadow);
   z-index: 30;
 }
 
@@ -130,10 +164,10 @@ body.lottie-viewer {
 
 .lv-color-picker h3 {
   font-size: 11px;
-  font-weight: 600;
-  color: #537aed;
+  font-weight: 500;
+  color: var(--lv-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   margin: 0;
 }
 
@@ -159,7 +193,7 @@ body.lottie-viewer {
 }
 
 .lv-color-swatch.active {
-  border-color: #537aed;
+  border-color: var(--lv-accent);
 }
 
 /* Saturation/brightness area */
@@ -227,18 +261,19 @@ body.lottie-viewer {
 
 .lv-hex-row input {
   flex: 1;
-  background: #0f172a;
-  border: 1px solid #0f3460;
-  border-radius: 6px;
-  color: #e0e0e0;
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  background: var(--lv-input-bg);
+  border: 1px solid var(--lv-border);
+  border-radius: 4px;
+  color: var(--lv-text-primary);
+  font-family: 'Roboto Mono', 'SF Mono', 'Consolas', monospace;
   font-size: 12px;
   padding: 6px 8px;
   outline: none;
 }
 
 .lv-hex-row input:focus {
-  border-color: #537aed;
+  border-color: var(--lv-accent);
+  box-shadow: 0 0 0 1px var(--lv-accent);
 }
 
 /* Player container */
@@ -253,20 +288,20 @@ body.lottie-viewer {
 
 #lv-player svg {
   max-width: 80vw;
-  max-height: calc(100vh - 56px);
+  max-height: calc(100vh - 48px);
 }
 
 /* Details panel */
 #lv-details {
   position: absolute;
-  top: 56px;
-  right: 16px;
-  background: #16213e;
-  border: 1px solid #0f3460;
-  border-radius: 10px;
+  top: 48px;
+  right: 12px;
+  background: var(--lv-panel-bg);
+  border: 1px solid var(--lv-border);
+  border-radius: 8px;
   padding: 16px 20px;
   min-width: 240px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 2px 6px 2px var(--lv-panel-shadow);
   z-index: 20;
   display: none;
 }
@@ -277,10 +312,10 @@ body.lottie-viewer {
 
 #lv-details h3 {
   font-size: 11px;
-  font-weight: 600;
-  color: #537aed;
+  font-weight: 500;
+  color: var(--lv-text-secondary);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.8px;
   margin-bottom: 12px;
 }
 
@@ -290,7 +325,7 @@ body.lottie-viewer {
   align-items: center;
   padding: 6px 0;
   font-size: 13px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--lv-row-border);
 }
 
 .lv-detail-row:last-child {
@@ -298,11 +333,11 @@ body.lottie-viewer {
 }
 
 .lv-detail-label {
-  color: #888;
+  color: var(--lv-text-secondary);
 }
 
 .lv-detail-value {
-  color: #e0e0e0;
-  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  color: var(--lv-text-primary);
+  font-variant-numeric: tabular-nums;
   font-size: 12px;
 }
