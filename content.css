@@ -1,0 +1,308 @@
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.lottie-viewer {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+#lv-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background: #16213e;
+  border-bottom: 1px solid #0f3460;
+  height: 44px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+#lv-toolbar button {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #e0e0e0;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+
+#lv-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+#lv-toolbar button.active {
+  background: rgba(83, 122, 237, 0.2);
+  border-color: #537aed;
+  color: #537aed;
+}
+
+#lv-toolbar button svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Progress bar */
+#lv-progress {
+  flex: 1;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: #2a2a4a;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  margin: 0 4px;
+}
+
+#lv-progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #537aed;
+  cursor: pointer;
+  border: none;
+  margin-top: -5px;
+}
+
+#lv-progress::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+}
+
+/* Time labels */
+.lv-time {
+  font-size: 11px;
+  color: #888;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  white-space: nowrap;
+  min-width: 32px;
+  flex-shrink: 0;
+}
+
+/* Separator */
+.lv-separator {
+  width: 1px;
+  height: 20px;
+  background: #0f3460;
+  flex-shrink: 0;
+}
+
+/* Color picker panel */
+.lv-color-picker {
+  position: absolute;
+  top: 56px;
+  right: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+  background: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 10px;
+  padding: 16px;
+  width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 30;
+}
+
+.lv-color-picker.visible {
+  display: flex;
+}
+
+.lv-color-picker h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #537aed;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+}
+
+/* Preset swatches row */
+.lv-presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.lv-color-swatch {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.15s;
+  flex-shrink: 0;
+}
+
+.lv-color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.lv-color-swatch.active {
+  border-color: #537aed;
+}
+
+/* Saturation/brightness area */
+.lv-sat-area {
+  position: relative;
+  width: 100%;
+  height: 140px;
+  border-radius: 6px;
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.lv-sat-area .lv-sat-white {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #fff, transparent);
+}
+
+.lv-sat-area .lv-sat-black {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent, #000);
+}
+
+.lv-sat-thumb {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Hue slider */
+.lv-hue-slider {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  border-radius: 7px;
+  background: linear-gradient(to right,
+    #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  cursor: pointer;
+}
+
+.lv-hue-thumb {
+  position: absolute;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 3px rgba(0,0,0,0.5);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Hex input row */
+.lv-hex-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lv-hex-row input {
+  flex: 1;
+  background: #0f172a;
+  border: 1px solid #0f3460;
+  border-radius: 6px;
+  color: #e0e0e0;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px;
+  padding: 6px 8px;
+  outline: none;
+}
+
+.lv-hex-row input:focus {
+  border-color: #537aed;
+}
+
+/* Player container */
+#lv-player {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+#lv-player svg {
+  max-width: 80vw;
+  max-height: calc(100vh - 56px);
+}
+
+/* Details panel */
+#lv-details {
+  position: absolute;
+  top: 56px;
+  right: 16px;
+  background: #16213e;
+  border: 1px solid #0f3460;
+  border-radius: 10px;
+  padding: 16px 20px;
+  min-width: 240px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  display: none;
+}
+
+#lv-details.visible {
+  display: block;
+}
+
+#lv-details h3 {
+  font-size: 11px;
+  font-weight: 600;
+  color: #537aed;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.lv-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lv-detail-row:last-child {
+  border-bottom: none;
+}
+
+.lv-detail-label {
+  color: #888;
+}
+
+.lv-detail-value {
+  color: #e0e0e0;
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 12px;
+}
