@@ -376,14 +376,6 @@
     btnBgColor.classList.toggle('active');
   });
 
-  colorPicker.addEventListener('click', function (e) {
-    var swatch = e.target.closest('.lv-color-swatch');
-    if (!swatch) return;
-    document.body.style.backgroundColor = swatch.dataset.color;
-    colorPicker.querySelector('.lv-color-swatch.active')?.classList.remove('active');
-    swatch.classList.add('active');
-  });
-
   btnDetails.addEventListener('click', function () {
     detailsPanel.classList.toggle('visible');
     btnDetails.classList.toggle('active');
