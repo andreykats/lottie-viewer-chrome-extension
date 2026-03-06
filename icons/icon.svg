@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
   <!-- Document body -->
-  <path d="M20 8 L88 8 L108 28 L108 120 L20 120 Z" fill="none" stroke="#2D2D2D" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M20 8 L88 8 L108 28 L108 120 L20 120 Z" fill="white" stroke="#2D2D2D" stroke-width="7" stroke-linejoin="round"/>
 
   <!-- Folded corner -->
   <path d="M88 8 L88 28 L108 28" fill="none" stroke="#2D2D2D" stroke-width="7" stroke-linejoin="round"/>
