@@ -1,4 +1,4 @@
-# Lottie Viewer Google Chrome Extension
+# Lottie Viewer - Google Chrome Extension
 
 ![Lottie Viewer Screenshot](screenshot.png)
 
