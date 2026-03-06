@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Lottie JSON Viewer",
+  "name": "Lottie Viewer",
   "version": "1.0.0",
   "description": "Automatically previews Lottie animation files (.json, .lottie) opened in Chrome with a full-featured player.",
   "icons": {

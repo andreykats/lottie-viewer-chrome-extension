@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <!-- Document body -->
+  <path d="M20 8 L88 8 L108 28 L108 120 L20 120 Z" fill="none" stroke="#2D2D2D" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- Folded corner -->
+  <path d="M88 8 L88 28 L108 28" fill="none" stroke="#2D2D2D" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- Play button triangle -->
+  <path d="M50 45 L50 85 L82 65 Z" fill="#2D2D2D"/>
+
+  <!-- Lottie badge - rounded rectangle -->
+  <rect x="72" y="82" width="32" height="32" rx="7" ry="7" fill="#2D2D2D"/>
+
+  <!-- Lottie curve/spline symbol -->
+  <path d="M79 104 Q84 88 88 98 Q92 108 97 92" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</svg>
